@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -Xlinker --dependency-file=CMakeFiles/test_logging.dir/link.d CMakeFiles/test_logging.dir/test_logging.cpp.o CMakeFiles/test_logging.dir/logging.cpp.o -o test_logging

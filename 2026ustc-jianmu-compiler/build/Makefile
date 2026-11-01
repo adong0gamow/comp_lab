@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler
+CMAKE_SOURCE_DIR = /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/build
+CMAKE_BINARY_DIR = /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -85,11 +85,56 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/build/CMakeFiles /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/CMakeFiles /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,17 +162,160 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab0_debug
+# Target rules for targets named intrinsics_gen
 
 # Build rule for target.
-lab0_debug: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab0_debug
-.PHONY : lab0_debug
+intrinsics_gen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 intrinsics_gen
+.PHONY : intrinsics_gen
 
 # fast build rule for target.
-lab0_debug/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/lab0_debug.dir/build.make src/CMakeFiles/lab0_debug.dir/build
-.PHONY : lab0_debug/fast
+intrinsics_gen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
+.PHONY : intrinsics_gen/fast
+
+#=============================================================================
+# Target rules for targets named vt_gen
+
+# Build rule for target.
+vt_gen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vt_gen
+.PHONY : vt_gen
+
+# fast build rule for target.
+vt_gen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vt_gen.dir/build.make CMakeFiles/vt_gen.dir/build
+.PHONY : vt_gen/fast
+
+#=============================================================================
+# Target rules for targets named omp_gen
+
+# Build rule for target.
+omp_gen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 omp_gen
+.PHONY : omp_gen
+
+# fast build rule for target.
+omp_gen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/omp_gen.dir/build.make CMakeFiles/omp_gen.dir/build
+.PHONY : omp_gen/fast
+
+#=============================================================================
+# Target rules for targets named acc_gen
+
+# Build rule for target.
+acc_gen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 acc_gen
+.PHONY : acc_gen
+
+# fast build rule for target.
+acc_gen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acc_gen.dir/build.make CMakeFiles/acc_gen.dir/build
+.PHONY : acc_gen/fast
+
+#=============================================================================
+# Target rules for targets named ARMTargetParserTableGen
+
+# Build rule for target.
+ARMTargetParserTableGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ARMTargetParserTableGen
+.PHONY : ARMTargetParserTableGen
+
+# fast build rule for target.
+ARMTargetParserTableGen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ARMTargetParserTableGen.dir/build.make CMakeFiles/ARMTargetParserTableGen.dir/build
+.PHONY : ARMTargetParserTableGen/fast
+
+#=============================================================================
+# Target rules for targets named AArch64TargetParserTableGen
+
+# Build rule for target.
+AArch64TargetParserTableGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AArch64TargetParserTableGen
+.PHONY : AArch64TargetParserTableGen
+
+# fast build rule for target.
+AArch64TargetParserTableGen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AArch64TargetParserTableGen.dir/build.make CMakeFiles/AArch64TargetParserTableGen.dir/build
+.PHONY : AArch64TargetParserTableGen/fast
+
+#=============================================================================
+# Target rules for targets named RISCVTargetParserTableGen
+
+# Build rule for target.
+RISCVTargetParserTableGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RISCVTargetParserTableGen
+.PHONY : RISCVTargetParserTableGen
+
+# fast build rule for target.
+RISCVTargetParserTableGen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RISCVTargetParserTableGen.dir/build.make CMakeFiles/RISCVTargetParserTableGen.dir/build
+.PHONY : RISCVTargetParserTableGen/fast
+
+#=============================================================================
+# Target rules for targets named syntax
+
+# Build rule for target.
+syntax: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 syntax
+.PHONY : syntax
+
+# fast build rule for target.
+syntax/fast:
+	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/syntax.dir/build.make src/parser/CMakeFiles/syntax.dir/build
+.PHONY : syntax/fast
+
+#=============================================================================
+# Target rules for targets named parser
+
+# Build rule for target.
+parser: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parser
+.PHONY : parser
+
+# fast build rule for target.
+parser/fast:
+	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/parser.dir/build.make src/parser/CMakeFiles/parser.dir/build
+.PHONY : parser/fast
+
+#=============================================================================
+# Target rules for targets named lexer
+
+# Build rule for target.
+lexer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lexer
+.PHONY : lexer
+
+# fast build rule for target.
+lexer/fast:
+	$(MAKE) $(MAKESILENT) -f src/parser/CMakeFiles/lexer.dir/build.make src/parser/CMakeFiles/lexer.dir/build
+.PHONY : lexer/fast
+
+#=============================================================================
+# Target rules for targets named common
+
+# Build rule for target.
+common: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 common
+.PHONY : common
+
+# fast build rule for target.
+common/fast:
+	$(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/build
+.PHONY : common/fast
+
+#=============================================================================
+# Target rules for targets named test_ast
+
+# Build rule for target.
+test_ast: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ast
+.PHONY : test_ast
+
+# fast build rule for target.
+test_ast/fast:
+	$(MAKE) $(MAKESILENT) -f src/logging/CMakeFiles/test_ast.dir/build.make src/logging/CMakeFiles/test_ast.dir/build
+.PHONY : test_ast/fast
 
 #=============================================================================
 # Target rules for targets named test_logging
@@ -139,8 +327,138 @@ test_logging: cmake_check_build_system
 
 # fast build rule for target.
 test_logging/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_logging.dir/build.make src/CMakeFiles/test_logging.dir/build
+	$(MAKE) $(MAKESILENT) -f src/logging/CMakeFiles/test_logging.dir/build.make src/logging/CMakeFiles/test_logging.dir/build
 .PHONY : test_logging/fast
+
+#=============================================================================
+# Target rules for targets named cminusfc
+
+# Build rule for target.
+cminusfc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cminusfc
+.PHONY : cminusfc
+
+# fast build rule for target.
+cminusfc/fast:
+	$(MAKE) $(MAKESILENT) -f src/cminusfc/CMakeFiles/cminusfc.dir/build.make src/cminusfc/CMakeFiles/cminusfc.dir/build
+.PHONY : cminusfc/fast
+
+#=============================================================================
+# Target rules for targets named IR_lib
+
+# Build rule for target.
+IR_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IR_lib
+.PHONY : IR_lib
+
+# fast build rule for target.
+IR_lib/fast:
+	$(MAKE) $(MAKESILENT) -f src/lightir/CMakeFiles/IR_lib.dir/build.make src/lightir/CMakeFiles/IR_lib.dir/build
+.PHONY : IR_lib/fast
+
+#=============================================================================
+# Target rules for targets named cminus_io
+
+# Build rule for target.
+cminus_io: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cminus_io
+.PHONY : cminus_io
+
+# fast build rule for target.
+cminus_io/fast:
+	$(MAKE) $(MAKESILENT) -f src/io/CMakeFiles/cminus_io.dir/build.make src/io/CMakeFiles/cminus_io.dir/build
+.PHONY : cminus_io/fast
+
+#=============================================================================
+# Target rules for targets named gcd_array_generator
+
+# Build rule for target.
+gcd_array_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gcd_array_generator
+.PHONY : gcd_array_generator
+
+# fast build rule for target.
+gcd_array_generator/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/CMakeFiles/gcd_array_generator.dir/build.make tests/2-ir-gen/warmup/CMakeFiles/gcd_array_generator.dir/build
+.PHONY : gcd_array_generator/fast
+
+#=============================================================================
+# Target rules for targets named stu_assign_generator
+
+# Build rule for target.
+stu_assign_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stu_assign_generator
+.PHONY : stu_assign_generator
+
+# fast build rule for target.
+stu_assign_generator/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/CMakeFiles/stu_assign_generator.dir/build.make tests/2-ir-gen/warmup/CMakeFiles/stu_assign_generator.dir/build
+.PHONY : stu_assign_generator/fast
+
+#=============================================================================
+# Target rules for targets named stu_fun_generator
+
+# Build rule for target.
+stu_fun_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stu_fun_generator
+.PHONY : stu_fun_generator
+
+# fast build rule for target.
+stu_fun_generator/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/CMakeFiles/stu_fun_generator.dir/build.make tests/2-ir-gen/warmup/CMakeFiles/stu_fun_generator.dir/build
+.PHONY : stu_fun_generator/fast
+
+#=============================================================================
+# Target rules for targets named stu_if_generator
+
+# Build rule for target.
+stu_if_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stu_if_generator
+.PHONY : stu_if_generator
+
+# fast build rule for target.
+stu_if_generator/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/CMakeFiles/stu_if_generator.dir/build.make tests/2-ir-gen/warmup/CMakeFiles/stu_if_generator.dir/build
+.PHONY : stu_if_generator/fast
+
+#=============================================================================
+# Target rules for targets named stu_while_generator
+
+# Build rule for target.
+stu_while_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stu_while_generator
+.PHONY : stu_while_generator
+
+# fast build rule for target.
+stu_while_generator/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/CMakeFiles/stu_while_generator.dir/build.make tests/2-ir-gen/warmup/CMakeFiles/stu_while_generator.dir/build
+.PHONY : stu_while_generator/fast
+
+#=============================================================================
+# Target rules for targets named calc_syntax
+
+# Build rule for target.
+calc_syntax: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calc_syntax
+.PHONY : calc_syntax
+
+# fast build rule for target.
+calc_syntax/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/calculator/CMakeFiles/calc_syntax.dir/build.make tests/2-ir-gen/warmup/calculator/CMakeFiles/calc_syntax.dir/build
+.PHONY : calc_syntax/fast
+
+#=============================================================================
+# Target rules for targets named calc
+
+# Build rule for target.
+calc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calc
+.PHONY : calc
+
+# fast build rule for target.
+calc/fast:
+	$(MAKE) $(MAKESILENT) -f tests/2-ir-gen/warmup/calculator/CMakeFiles/calc.dir/build.make tests/2-ir-gen/warmup/calculator/CMakeFiles/calc.dir/build
+.PHONY : calc/fast
 
 # Help Target
 help:
@@ -149,8 +467,33 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... lab0_debug"
+	@echo "... AArch64TargetParserTableGen"
+	@echo "... ARMTargetParserTableGen"
+	@echo "... RISCVTargetParserTableGen"
+	@echo "... acc_gen"
+	@echo "... intrinsics_gen"
+	@echo "... omp_gen"
+	@echo "... vt_gen"
+	@echo "... IR_lib"
+	@echo "... calc"
+	@echo "... calc_syntax"
+	@echo "... cminus_io"
+	@echo "... cminusfc"
+	@echo "... common"
+	@echo "... gcd_array_generator"
+	@echo "... lexer"
+	@echo "... parser"
+	@echo "... stu_assign_generator"
+	@echo "... stu_fun_generator"
+	@echo "... stu_if_generator"
+	@echo "... stu_while_generator"
+	@echo "... syntax"
+	@echo "... test_ast"
 	@echo "... test_logging"
 .PHONY : help
 

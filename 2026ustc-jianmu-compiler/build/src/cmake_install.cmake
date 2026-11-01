@@ -1,4 +1,4 @@
-# Install script for directory: /home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/src
+# Install script for directory: /home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,23 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/parser/cmake_install.cmake")
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/common/cmake_install.cmake")
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/logging/cmake_install.cmake")
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/cminusfc/cmake_install.cmake")
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/lightir/cmake_install.cmake")
+  include("/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/io/cmake_install.cmake")
+
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/caodongwan/Desktop/comp_lab0/2026ustc-jianmu-compiler/build/src/install_local_manifest.txt"
+  file(WRITE "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build/src/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

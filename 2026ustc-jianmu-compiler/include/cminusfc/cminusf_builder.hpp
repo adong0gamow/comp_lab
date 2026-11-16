@@ -108,6 +108,12 @@ class CminusfBuilder : public ASTVisitor {
     struct {
         // function that is being built
         Function *func = nullptr;
-        // TODO: you should add more fields to store state
+        BasicBlock *entry_block = nullptr;
+        int compound_depth = 0;
+        int block_id = 0;
     } context;
+
+    Type *type_of(CminusType type);
+    Value *cast_value(Value *value, Type *type);
+    Value *get_address(ASTVar &node);
 };

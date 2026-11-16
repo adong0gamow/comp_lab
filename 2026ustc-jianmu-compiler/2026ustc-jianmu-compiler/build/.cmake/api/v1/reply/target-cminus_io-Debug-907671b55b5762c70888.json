@@ -1,0 +1,153 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libcminus_io.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"INCLUDE_DIRECTORIES",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"src/io/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 37,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 51,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 52,
+				"parent" : 3
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -std=c99 -g   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/include/cminusfc"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/include/common"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/include/lightir"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/usr/lib/llvm-20/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/caodongwan/Desktop/comp_lab1/2026ustc-jianmu-compiler/build"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "cminus_io::@8c9074cf2e563e673ee9",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"name" : "cminus_io",
+	"nameOnDisk" : "libcminus_io.a",
+	"paths" : 
+	{
+		"build" : "src/io",
+		"source" : "src/io"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/io/io.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}
